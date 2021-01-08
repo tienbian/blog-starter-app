@@ -10,7 +10,7 @@ ogImage:
   url: '/assets/blog/hello-world/cover.jpg'
 ---
 
-```js
+```sh
 const user = new User();
 user.full_name = 'Tran Vu Quoc Tien';
 user.signature = 'from ruby with love';
@@ -30,10 +30,10 @@ Check your npm installed by
 ```sh
 npm -v
 ```
-No more waitting. Let's start now.
+No more waiting. Let's start now.
 # Project initialization
 First of all, we need to create a new folder named *next_please*.
-From the terminal, getting into our new folder, assumming that we have _npm_ installed locally, we type
+From the terminal, getting into our new folder, assuming that we have _npm_ installed locally, we type
 ```sh
 mkdir next_please
 cd next_please
@@ -50,9 +50,9 @@ tsc --init
 ```
 As a result, now you have a *tsconfig.json* file, which is used to specify the compiler options (as you may know, in the end, we will compile the Typescript code into Javascript).
 
-I recommend use *eslint* module to check the syntax for Typescript code, to improve readability, maintainability, and functionality errors. But we will not install it in this post because it has a bunch of settings which is depend on your coding style.
+I recommend use *eslint* module to check the syntax for Typescript code, to improve readability, maintainability, and functionality errors. But we will not install it in this post because it has a bunch of settings that depends on your coding style.
 
-For simplicity just override your *tsconfig.json* with below snippet
+For simplicity just override your *tsconfig.json* with the below snippet
 ```sh
 ## ~/next_please/tsconfig.json
 {
@@ -89,8 +89,8 @@ npm install --save-dev @types/express
 No need specify *--save* option on *npm install* since npm 5.0+
 
 We start by coding our *app.ts* inside *src* folder. This file will take responsibility for our routing functionality.
-We also make *index.ts* inside *src* folder, where we expose express server to port 5000.
-Ending to have a something like this:
+We also make *index.ts* inside *src* folder, where we expose the express server to port 5000.
+Ending to have something like this:
 ```sh
 .
 ├── node_modules
@@ -114,7 +114,7 @@ app.get('/', (req, res) => res.send('Hello World!'));
 export {app};
 ```
 No need *body-parser* modules for reading the body of response since Express version 4.16+
-Here is the first version of *app.ts*, which contains only a simple GET endpoint "/" , which, when called, reponses with a *"Hello World!"*.
+Here is the first version of *app.ts*, which contains only a simple GET endpoint "/" , which, when called, responds with a *"Hello World!"*.
 Next, go on with *index.ts*:
 ```sh
 ## ~/next_please/src/index.ts
@@ -152,7 +152,7 @@ Running that command will trigger scripts execution by order:
 - prestart
 - start
 
-which finally compile our typescript code into *dist* folder.
+which finally compiles our typescript code into *dist* folder.
 We can check everything is OK by access *http://localhost:5000*
 As output, we can see *Hello World!*
 
@@ -200,7 +200,7 @@ We need install *dotenv* module to make environment variables available in our a
 ```sh
 npm install dotenv
 ```
-We will create *.env* with following variables for local developement, we will need other values for production.
+We will create *.env* with the following variables for local development, we will need other values for production.
 ```sh
 ## ~/next_please/.env
 
@@ -282,7 +282,7 @@ export class CreateMoviesTable1584289576471 implements MigrationInterface {
     }
 }
 ```
-To run migration, we need add some scripts to our *package.json*
+To run the migration, we need to add some scripts to our *package.json*
 ```sh
 ## ~/next_please/package.json
 
@@ -295,7 +295,7 @@ Now enter the command
 ```sh
 npm run migration:run
 ```
-If everything was OK, you should see last messages and a record has been insert into *custom_migration_table*
+If everything was OK, you should see the last messages and a record has been inserted into *custom_migration_table*
 ```sh
 Migration CreateMoviesTable<timestamp> has been executed successfully.
 ```
@@ -320,7 +320,7 @@ export class Movie extends BaseEntity{
 Now we are ready to create REST endpoint for movies
 # Create a Movies
 We will make a POST /movies endpoint to create a movie.
-We will use ActiveRecord patterns of TypeORM to save movie record. TypeORM also provide many features to support querying and associations.
+We will use ActiveRecord patterns of TypeORM to save movie record. TypeORM also provides many features to support querying and associations.
 
 ```sh
 ## ~/next_please/src/app.ts
@@ -363,12 +363,12 @@ and we should have response
 ```sh
 {"title":"test","plot_summary":"test","duration":"10000","id":1}
 ```
-And that's it. We have just make an API that handle create movie record.
-Now we shoud prepare for deploying our API.
+And that's it. We have just made an API that handles create a movie record.
+Now we should prepare for deploying our API.
 
 
 # Prepare Deployment
-First step of deployment, let's make a Dockerfile.
+In the first step of deployment, let's make a Dockerfile.
 We will build Dockerfile for production only
 ```sh
 ## ~/next_please/Dockerfile
@@ -396,7 +396,7 @@ Here we will use *pm2* to run our API on production. Let's install it
 ```sh
 npm install pm2
 ```
-and add a script into *package.json* to run process when our container has run
+and add a script into *package.json* to run the process when our container has run
 ```sh
 ## ~/next_please/package.json
 
@@ -405,7 +405,7 @@ and add a script into *package.json* to run process when our container has run
 "pm2": "pm2 start dist/index.js --no-daemon"
 ```
 
-We should run migration everytime we deploy to make sure our DB changing to be excuted on production DB.
+We should run migration every time we deploy to make sure our DB changing to be executed on production DB.
 Here is the *ecs.entrypoint.sh* file
 ```sh
 ## ~/next_please/ecs.entrypoint.sh
@@ -430,4 +430,3 @@ Then finish part 1.
 In the next part, we will deploy our API to AWS ECS by GitHubAction.
 # Source code
 https://github.com/tienbian/next_please
-
