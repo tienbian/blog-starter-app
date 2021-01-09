@@ -33,7 +33,7 @@ npm -v
 No more waiting. Let's start now.
 # Project initialization
 First of all, we need to create a new folder named *next_please*.
-From the terminal, getting into our new folder, assuming that we have _npm_ installed locally, we type
+From the terminal, getting into our new folder, we type
 ```sh
 mkdir next_please
 cd next_please
