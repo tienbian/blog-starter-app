@@ -403,7 +403,7 @@ namespace nextMovie.Controllers
             };
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = result.Errors.ToString() });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Username or Password wrong" });
             if (!await roleManager.RoleExistsAsync(UserRoles.User))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
 
@@ -418,6 +418,7 @@ namespace nextMovie.Controllers
 ```
 ## Test Authenticate API
 You can test Register API with this call
+Password required format is set default by Identity.
 ```sh
 curl --location --request POST 'https://localhost:7273/api/v1/authenticate/register' \
 --header 'Content-Type: application/json' \
