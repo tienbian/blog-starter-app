@@ -17,8 +17,10 @@ user.signature = 'from ruby with love';
 _context.Users.Add(user);
 await _context.SaveChangesAsync();
 ```
+
 Since .NET Core has introduced along with ASP.NET Core, it provide a free, open-source, and cross-platform web framework for building cloud-based applications, such as web apps, IoT apps, and mobile backends. It is designed to run on the cloud as well as on-premises. As you are reading this post, I'm assuming that you are familiar with REST API, Postgresql, DB migrations, Docker.
-Let's say that we want to create an API to support a fake web application based on Netflix where people who has account can upload movies. We will call it NextMovie.
+
+Let's say that we want to create an API to support a fake web application based on Netflix where people who has account can upload movies. We will call it NextMovie. See full source code [here](https://github.com/tienbian/next_movie)
 
 # The setup 🛠
 You need to have .NET 6.0 SDK installed.
