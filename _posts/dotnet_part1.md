@@ -149,7 +149,7 @@ Check list secrets
 dotnet user-secrets list
 ```
 #### Register the database context and register Identity
-Update Program.cs with the following code:
+Update Program.cs with the following code.
 For full configuration Identity see [here](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-configuration?view=aspnetcore-6.0).
 ```sh
 ## ~/next_movie/Program.cs
