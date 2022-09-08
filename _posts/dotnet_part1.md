@@ -3,7 +3,7 @@ title: 'Build an Authentication and REST API application with Web API ASP.NET Co
         (Part1: Authentication API)'
 excerpt: 'in a .NET series'
 coverImage: '/assets/blog/preview/cover.jpg'
-date: '2022-01-09T05:35:07.322Z'
+date: '2022-09-01T05:35:07.322Z'
 author:
   name: TienTran
   picture: '/assets/blog/authors/jj.jpeg'
