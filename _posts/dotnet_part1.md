@@ -404,7 +404,13 @@ namespace nextMovie.Controllers
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = result.Errors.ToString() });
+            if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
 
+            if (await roleManager.RoleExistsAsync(UserRoles.User))
+            {
+                await userManager.AddToRoleAsync(user, UserRoles.User);
+            }
             return Ok();
         }
     }
@@ -433,4 +439,6 @@ curl --location --request POST 'https://localhost:7273/api/v1/authenticate/login
     "password": "Abc123!!!"
 }'
 ```
+You can check claims of the token by jwt.io
+
 Finish Authenticate API, we will do the REST APIs which requires authentication to action.
