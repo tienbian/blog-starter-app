@@ -1,6 +1,6 @@
 ---
 title: 'Build an Authentication and REST API application with Web API ASP.NET Core
-        Part1: Authentication API'
+        (Part1: Authentication API)'
 excerpt: 'in a .NET series'
 coverImage: '/assets/blog/preview/cover.jpg'
 date: '2022-01-09T05:35:07.322Z'
