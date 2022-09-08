@@ -417,7 +417,7 @@ namespace nextMovie.Controllers
 }
 ```
 ## Test Authenticate API
-You can test Register API with this call
+You can test Register API with this call.
 Password required format is set default by Identity.
 ```sh
 curl --location --request POST 'https://localhost:7273/api/v1/authenticate/register' \
@@ -430,7 +430,7 @@ curl --location --request POST 'https://localhost:7273/api/v1/authenticate/regis
 
 }'
 ```
-And test Login API with this call
+And test Login API with this call.
 ```sh
 curl --location --request POST 'https://localhost:7273/api/v1/authenticate/login' \
 --header 'Content-Type: application/json' \
